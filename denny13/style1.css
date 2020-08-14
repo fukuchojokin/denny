@@ -1,0 +1,48 @@
+html {
+  font-family: "Roboto";
+  text-align: center;
+  color: white;
+  margin: 30px;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(font/Roboto-Italic.ttf);
+}
+
+.parent {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.child {
+  display: inline;
+  margin: 30px;
+}
+
+.prev,
+.next,
+.pP {
+  height: 25px;
+  width: 25px;
+}
+
+#title {
+  margin-top: 10px;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#artist {
+  font-size: 10px;
+}
+
+.line {
+  height: 2px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: white;
+  margin: auto;
+}
