@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>denny</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <script type="text/javascript" src="options.js"></script>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body onload="init()" bgcolor="black">
+    <div>
+        <a id="greet"></a>
+    </div>
+
+    <script>
+        var greeting;
+        var time = new Date().getHours();
+        if (time < 12) {
+            greeting = "Morning";
+        } else if (time >= 12 && time < 17) {
+            greeting = "Afternoon";
+        } else if (time >= 17 && time < 20) {
+            greeting = "Evening";
+        } else {
+            greeting = "Night";
+        }
+        document.getElementById("greet").innerHTML = greeting;
+    </script>
+    <div class="line"></div>
+
+    <script>
+        function updateClock() {
+            var currentTime = new Date();
+            var currentHours = currentTime.getHours();
+            var currentMinutes = currentTime.getMinutes() < 10 ? '0' + currentTime.getMinutes() : currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds() < 10 ? '0' + currentTime.getSeconds() : currentTime.getSeconds();
+            var currentDate = currentTime.getDate() < 10 ? '0' + currentTime.getDate() : currentTime.getDate();
+            var currentYear = currentTime.getFullYear();
+            timeOfDay = (currentHours < 12) ? " AM" : " PM";
+
+            if (Clock == "24h") {
+                timeOfDay = "";
+                currentHours = (currentHours < 10 ? "0" : "") + currentHours;
+                currentTimeString = currentHours + ":" + currentMinutes;
+            }
+            if (Clock == "12h") {
+                currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+                currentHours = (currentHours == 0) ? 12 : currentHours;
+                currentTimeString = currentHours + ":" + currentMinutes;
+            }
+
+            document.getElementById("hour").innerHTML = currentHours;
+            document.getElementById("minute").innerHTML = currentMinutes;
+            document.getElementById("month").innerHTML = months[currentTime.getMonth()];
+            document.getElementById("date").innerHTML = currentDate;
+            document.getElementById("weekday").innerHTML = days[currentTime.getDay()];
+            document.getElementById("ampm").innerHTML = timeOfDay;
+        }
+
+        function init() {
+            updateClock();
+            setInterval("updateClock();", 100);
+        }
+
+        var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var hourtext = ["Twelve", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
+
+    </script>
+    <div id="weekday"></div>
+    <div class="linee"></div>
+    <div class="circle"></div>
+    <div class="dateweat">
+        <div class="date">
+            <a id="month"></a> <a id="date"></a><br />
+            <div class="weather">
+                Weather for today is<br><a id="condition"></a><br>
+                with <a id="temphigh"></a> max and <a id="templow"></a> min.
+            </div>
+        </div>
+        <script>
+            function mainUpdate(type) {
+                if (type == "weather") {
+                    document.getElementById('condition').innerHTML = weather.condition;
+                    document.getElementById('templow').innerHTML = weather.low + "&deg;";
+                    document.getElementById('temphigh').innerHTML = weather.high + "&deg;";
+                }
+            }
+        </script>
+        <div class="linex"></div>
+        <div class="circle"></div>
+        <div class="time">
+            <a id="hour"></a><a class="colon"> : </a><a id="minute"></a><a id="ampm"></a>
+        </div>
+        <div class="linee"></div>
+        <div class="circle"></div>
+        <div class="battery">
+            <a id="batterylevel">95 </a><strike>&nbsp&nbsp&nbsp</strike> Battery<br>
+            <a id="status">charging?</a>
+        </div>
+        <script>
+            function mainUpdate(type) {
+                if (type == "battery") {
+                    document.getElementById('batterylevel').innerHTML = batteryPercent;
+                    document.getElementById('status').innerHTML = (batteryCharging) ? "Plugged" : "Unplugged";
+                }
+            }
+        </script>
+
+
+        <div class="music">
+            <div class="linemusic"></div>
+            <div id="title">title</div>
+            <div id="artist">artist</div><br>
+            <div class="parent">
+                <div class="child" id="prev"><img class="prev" onclick="previous()" src="img/previous.png"></div>
+                <div class="child" id="pP"><img class="pP" id="button" onclick="pP()" src="img/play.png"></div>
+                <div class="child" id="next"><img class="next" onclick="next()" src="img/next.png"></div>
+            </div>
+        </div>
+        <script>
+            function mainUpdate(type) {
+                if (type == "music") {
+                    document.getElementById('title').innerHTML = title;
+                    document.getElementById('artist').innerHTML = artist;
+
+                    if (isplaying) {
+                        document.getElementById('button').src = "img/pause.png";
+                    } else {
+                        document.getElementById('button').src = "img/play.png";
+                    }
+                }
+            }
+            function previous() {
+                window.location = 'xeninfo:prevtrack'
+            }
+            function pP() {
+                window.location = 'xeninfo:playpause'
+            }
+            function next() {
+                window.location = 'xeninfo:nexttrack'
+            }
+        </script>
+</body>
+
+</html>

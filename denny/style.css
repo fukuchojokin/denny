@@ -1,0 +1,140 @@
+html {
+  color: white;
+  font-family: Roboto;
+  text-align: center;
+  margin: 20px;
+}
+
+@font-face {
+  font-family: "Facon";
+  src: url("fonts/Facon.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto-Italic.ttf");
+}
+
+.line {
+  height: 5px;
+  width: 30px;
+  background-color: #01ecff;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+#weekday {
+  position: absolute;
+  text-align: left;
+  font-family: Facon;
+  color: #01ecff;
+  font-size: 30px;
+  margin-top: 0.6em;
+  margin-left: 3.5em;
+}
+
+.linee {
+  margin-top: 15px;
+  position: relative;
+  height: 40px;
+  width: 2px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.circle {
+  height: 15px;
+  width: 15px;
+  background-color: #01ecff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  border-radius: 100%;
+}
+
+.date {
+  text-align: left;
+  margin-top: -1em;
+  margin-left: 13em;
+}
+
+.time {
+  text-align: left;
+  margin-top: -1em;
+  margin-left: 6em;
+}
+
+.battery {
+  text-align: right;
+  margin-top: -0.8em;
+  margin-right: 4.5em;
+  line-height: 15px;
+}
+
+.colon {
+  vertical-align: 0.05em;
+}
+
+#status {
+  font-size: 10px;
+}
+
+.weather {
+  font-size: 10px;
+  margin-right: 0px;
+  line-height: 20px;
+}
+
+.linex {
+  margin-top: -50px;
+  position: relative;
+  height: 80px;
+  width: 2px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.music {
+  margin-top: 200px;
+}
+
+.parent {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.child {
+  display: inline;
+  margin: 30px;
+}
+
+.prev,
+.next,
+.pP {
+  height: 25px;
+  width: 25px;
+}
+
+#title {
+  margin-top: 10px;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#artist {
+  font-size: 10px;
+}
+
+.linemusic {
+  height: 2px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: white;
+  margin: auto;
+}
